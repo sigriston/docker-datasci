@@ -34,36 +34,44 @@ RUN apt-get -y install curl
 
 # Install python
 RUN apt-get -y install python python-dev
+RUN apt-get -y install python3 python3-dev
 
 # Install pip
 RUN curl https://bootstrap.pypa.io/get-pip.py | python
+RUN curl https://bootstrap.pypa.io/get-pip.py | python3
 
 # Install cython
-RUN pip install Cython
+RUN pip2 install Cython
+RUN pip3 install Cython
 
 # Install numexpr and bottleneck
-RUN pip install numexpr bottleneck
+RUN pip2 install numexpr bottleneck
+RUN pip3 install numexpr bottleneck
 
 # Install SciPy, statsmodels and xlrd
-RUN pip install scipy statsmodels xlrd
+RUN pip2 install scipy statsmodels xlrd
+RUN pip3 install scipy statsmodels xlrd
 
 # Install freetype
 RUN apt-get -y install libfreetype6 libfreetype6-dev
 
 # Install matplotlib
-RUN pip install matplotlib
+RUN pip2 install matplotlib
+RUN pip3 install matplotlib
 
 # Install hdf5
 RUN apt-get -y install libhdf5-dev
 
 # Install PyTables
-RUN pip install tables
+RUN pip2 install tables
+RUN pip3 install tables
 
 # Install pandas
-RUN pip install pandas
+RUN pip2 install pandas
+RUN pip3 install pandas
 
 # Install ipython notebook
-RUN pip install 'ipython[all]'
+RUN pip3 install 'ipython[all]'
 
 # Install libzmq3
 RUN apt-get -y install libzmq3-dev
