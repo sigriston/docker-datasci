@@ -20,6 +20,12 @@ RUN add-apt-repository -y ppa:staticfloat/juliareleases
 # Update APT so we can start installing things
 RUN apt-get update
 
+# Install English language pack
+RUN apt-get -y install language-pack-en
+
+# Set locale to en_US.UTF-8
+RUN update-locale LC_ALL=en_US.UTF-8
+
 # Install R
 RUN apt-get -y install r-base r-base-dev libcurl4-openssl-dev
 
