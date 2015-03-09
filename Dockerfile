@@ -71,7 +71,11 @@ RUN pip2 install pandas
 RUN pip3 install pandas
 
 # Install ipython notebook
+RUN pip2 install 'ipython[all]'
 RUN pip3 install 'ipython[all]'
+
+# Install Python 2 kernel
+RUN ipython2 kernelspec install-self
 
 # Install libzmq3
 RUN apt-get -y install libzmq3-dev
@@ -106,4 +110,4 @@ RUN julia -e 'Pkg.add("Gadfly")'
 # expose http
 EXPOSE 80
 
-CMD cd /root/notebooks; ipython notebook --ip=0.0.0.0 --port=80 --no-browser
+CMD cd /root/notebooks; ipython3 notebook --ip=0.0.0.0 --port=80 --no-browser
